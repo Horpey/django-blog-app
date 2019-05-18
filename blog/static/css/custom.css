@@ -1,0 +1,68 @@
+body {
+    padding-top: 120px;
+    background: #eef8ff;
+}
+
+.navbar-brand img {
+    height: 32px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.border-collab {
+    box-shadow: inset 1px 1px 0 rgba(81, 191, 191, 0.1), inset 0 -1px 0 rgba(60, 119, 111, 0.06);
+    border-radius: 10px;
+    border-color: #eaf7ff !important;
+    color: black;
+}
+
+.btn-collab,
+.btn-collab:hover {
+    background: #fd004c;
+    color: white;
+}
+
+.btn-collab-outline {
+    border-color: #fd004c;
+    color: #fd004c;
+}
+
+.btn-collab-outline:hover {
+    background-color: white !important;
+    color: #fd004c !important;
+    border-color: #fd004c !important;
+}
+
+.main-card .card-title {
+    margin-bottom: 0px;
+}
+
+#footer {
+    margin: 5em 0
+}
+
+#footer li {
+    float: left;
+    margin-right: 1.5em;
+    margin-bottom: 1.5em
+}
+
+#footer p {
+    clear: left;
+    margin-bottom: 0
+}
+
+.time-pul {
+    display: inline-block;
+    float: right;
+    background: #919aa126;
+    padding: 4px 9px;
+    border: 1px dashed #cccccc;
+}
+.time-tren{
+    background: #919aa126;
+    padding: 3px 9px;
+    border: 1px dashed #cccccc;
+}

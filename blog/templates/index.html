@@ -1,0 +1,140 @@
+{% load static %}
+{% load humanize %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{header}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css" media="screen"> -->
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" media="screen">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}" media="screen">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-expand-lg fixed-top navbar-light bg-light" style="">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img class="img-fluid" src="{% static "images/logo.svg" %}" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">All Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bookmarked</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                {% for post in titles%}
+
+                <div class="card border-collab mb-3">
+                    <div class="card-body main-card">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <a href="./news-single.html">
+                                        <h4 class="card-title d-inline">
+                                            {{post.title}}
+                                        </h4>
+                                </a>
+                                <div class="my-2">
+                                    <span class="badge badge-primary">{{post.category}}</span>
+                                </div>
+                                <p class="text-muted mb-3"><i>Adeniran Opeyemi</i></p>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="text-right text-muted time-pul"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>{{post.published|naturaltime|capfirst}}</p>
+                            </div>
+                        </div>
+                        
+                        <p class="card-text">
+                            {{post.body | truncatechars:255 }}
+                        </p>
+
+                        <a href="news-single.html" class="btn btn-collab btn-sm">Read More</a>
+                        <a href="#" class="btn btn-collab btn-sm"><i class="fa fa-bookmark pr-2" aria-hidden="true"></i>Bookmark</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-4">
+                <h5>Trending</h5>
+                <div class="card border-collab mb-3">
+                    <div class="card-body">
+                            <a href="./news-single.html">
+                                <h5 class="card-title">Marriage is still Cool</h4>
+                        </a>
+                        <small class="text-muted time-tren"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>2 hours ago</small>
+                        <p class="card-text mt-2">Evil is a word we use to describe the absence of Good, just as we use the
+                            word darkness to describe the absence...</p>
+
+                        <a href="./news-single.html" class="btn btn-outline-secondary btn-collab-outline btn-sm">Read More</a>
+                    </div>
+                </div>
+                <div class="card border-collab mb-3">
+                    <div class="card-body">
+                            <a href="./news-single.html">
+                                <h5 class="card-title">Sarayu Message</h4>
+                        </a>
+                        <small class="text-muted time-tren"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>2 hours ago</small>
+                        <p class="card-text mt-2">Evil is a word we use to describe the absence of Good, just as we use the
+                            word darkness to describe the absence...</p>
+
+                        <a href="./news-single.html" class="btn btn-outline-secondary btn-collab-outline btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <ul class="list-unstyled">
+                        <li class="float-lg-right"><a href="#top">Back to top</a></li>
+                        <li><a href="https://twitter.com/toons_hub" target="_blank">Twitter</a></li>
+                        <li><a href="https://github.com/horpey" target="_blank">GitHub</a></li>
+                        <li><a href="https://dribbble.com/tha_ui_guy_" target="_blank">Dribbble</a></li>
+                    </ul>
+                    <p>Made by <a href="#">Tha UI Guy</a>.</p>
+                    <p>Project during <a href="http://paradigmhq.org/" target="_blank">Paradigm Initiative</a> Python Bootcamp.</p>
+                    <p>Based on <a href="https://getbootstrap.com" target="_blank" rel="nofollow">Bootstrap</a>. Icons from <a href="https://fontawesome.com/" target="_blank" rel="nofollow">Font Awesome</a>. Web fonts from <a href="https://fonts.google.com/" target="_blank" rel="nofollow">Google</a>.</p>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>
