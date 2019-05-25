@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import homepage
+from blog.views import homepage, singlepost
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', homepage)
+    path('blog/', homepage),
+    # id is passed as Argument to singlepage Function
+    path('blog/<int:post_id>', singlepost, name="singlepost"),
 ]

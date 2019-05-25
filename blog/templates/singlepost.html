@@ -1,0 +1,106 @@
+{% load static %}
+{% load humanize %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{post.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" media="screen">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}" media="screen">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card border-collab mb-3">
+                    <div class="card-body main-card">
+                    <div class="row">
+                        <div class="col-md-6">
+                                <h4 class="card-title mb-3">{{post.title}}</h4>
+                                <div class="mb-3">
+                                    <span class="badge badge-primary">{{post.category}}</span>
+                                </div>
+
+                                <p class="text-right text-muted time-tren d-inline"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>{{post.published|naturaltime|capfirst}}</p>
+                        </div>
+                        <div class="col-md-6 ">
+                                <a href="#" class="btn btn-collab btn-sm float-md-right float-sm-left"><i class="fa fa-bookmark pr-2" aria-hidden="true"></i>Bookmark</a>
+                        </div>
+                    </div>
+                        
+                        <p class="text-muted mb-3 mt-3"><i>{{post.author.first_name}} {{post.author.last_name}}</i></p>
+                        <p class="card-text">{{post.body}}</p>
+
+                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-share pr-2" aria-hidden="true"></i>Share</a>
+
+
+                        {% comment %} {{comments}} {% endcomment %}
+                        
+                    </div>
+                </div>
+
+                <h5 class="mt-4">Comments</h5>
+                <div class="card border-collab mb-3">
+                    <div class="card-body main-card">
+
+                    <div class="list-group">
+                    {% for comment in comments %}
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{comment.author}}</h5>
+                            <small class="badge badge-primary">{{comment.published|naturaltime|capfirst}}</small>
+                            </div>
+                            <p class="mb-1">{{comment.body}}</p>
+                        </div>
+                    {% endfor %}
+                    </div>
+
+
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="card border-collab mb-3">
+                    <div class="card-body main-card">
+                        <div class="">
+                            <form method="POST">
+                                {{form.as_p}}
+                                {% csrf_token %}
+                                <input class="btn btn-collab" type="submit" value="Add Comment"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <h5>Related</h5>
+                <div class="card border-collab mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Sarayu Message</h5>
+                        <p class="card-text">Evil is a word we use to describe the absence of Good, just as we use the
+                            word darkness to describe the absence...</p>
+
+                        <a href="#" class="btn btn-outline-secondary btn-collab-outline btn-sm">Read More</a>
+                    </div>
+                </div>
+                <div class="card border-collab mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Sarayu Message</h5>
+                        <p class="card-text">Evil is a word we use to describe the absence of Good, just as we use the
+                            word darkness to describe the absence...</p>
+
+                        <a href="#" class="btn btn-outline-secondary btn-collab-outline btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'footer.html'%}

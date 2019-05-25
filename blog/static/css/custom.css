@@ -22,6 +22,7 @@ body {
 .btn-collab:hover {
     background: #fd004c;
     color: white;
+    cursor: pointer!important;
 }
 
 .btn-collab-outline {
